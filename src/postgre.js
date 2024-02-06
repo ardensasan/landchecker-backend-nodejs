@@ -1,4 +1,5 @@
 import pgPromise from "pg-promise"
+import { TABLE_NAME } from "./constants";
 let db = null;
 const postgreClient = () => {
     if (!db) {
@@ -14,7 +15,7 @@ const postgreClient = () => {
 
    const getDataByid = async (id = 1, page = 1) => {
     const query = {
-        text: 'SELECT * FROM public.vic_lga WHERE gid = $1',
+        text: `SELECT * FROM ${TABLE_NAME} WHERE gid = $1`,
         values: [id],
         }
         try {
