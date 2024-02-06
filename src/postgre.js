@@ -1,16 +1,10 @@
 import pgPromise from "pg-promise"
-import { TABLE_NAME } from "./constants";
+import { DATABASE_CREDENTIALS, TABLE_NAME } from "./constants.js";
 let db = null;
 const postgreClient = () => {
     if (!db) {
         const pgp = pgPromise()
-        db = pgp({
-            host: 'localhost',
-            port: 5432,
-            database: 'postgres',
-            user: 'postgres',
-            password: 'admin',
-        });
+        db = pgp(DATABASE_CREDENTIALS);
     }
 
    const getDataByid = async (id = 1, page = 1) => {

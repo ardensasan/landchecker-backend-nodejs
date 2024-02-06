@@ -1,11 +1,13 @@
 import express from "express"
-import { errorCatcher } from "./middlewares.js";
+import { errorCatcher, requestParamsValidator } from "./middlewares.js";
 import { getByIdController, wildcardPathController } from "./controller.js";
+import { GET_BY_ID_SCHEMA } from "./constants.js";
+GET_BY_ID_SCHEMA
 const app = express();
 const port = 3000;
 
 
-app.get('/lgas/:id', getByIdController)
+app.get('/lgas/:id', requestParamsValidator(GET_BY_ID_SCHEMA), getByIdController)
 app.all('*', wildcardPathController)
 app.use(errorCatcher)
 
