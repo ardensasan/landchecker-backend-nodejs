@@ -1,6 +1,6 @@
-# README
+# About
 
-Welcome! This README will guide you through the setup process and functionality.
+This repository contains an Express API designed to handle requests related to LGAs (Local Government Areas) and properties. The API provides endpoints for retrieving information about LGAs and properties.
 
 ## Getting Started
 
@@ -14,7 +14,9 @@ To get started with this Express app, follow these steps:
    ```bash
    cd landchecker-backend-nodejs
 
-3. Install dependencies [Node](https://nodejs.org/) must be installed to run package manager:
+3. Install dependencies\
+[Node](https://nodejs.org/) must be installed to run package manager:\
+For more information visit [FreeCodeCamp How To Install Node JS and NPM](https://www.freecodecamp.org/news/how-to-install-node-js-and-npm-on-windows-2/)
    ```bash
    npm install
 
@@ -23,7 +25,7 @@ To get started with this Express app, follow these steps:
     npm start
 
 
-Default host is on http://localhost:3000/
+Default host is on localhost and port is 3000
 
 To run tests use command:
    ```bash
@@ -32,16 +34,27 @@ To run tests use command:
  
 Available Endpoints
    ```bash
-   /lgas/list (GET)
-   /lgas/:id (GET)
-   /properties/list (GET)
-   /properties/:id (GET)
+   /lgas/list (GET) Retrieves a list of LGAs.
+   /lgas/:id (GET) Retrieves information about a specific LGA identified by its id.
+   /properties/list (GET) Retrieves a list of properties.
+   /properties/:id (GET) Retrieves information about a specific property identified by its id.
    ```
 
-For swagger documentation
-   ```bash
+Error Handling
+```
+    404 Status Code: The API returns a 404 status code if the requested id cannot be found in the database.
+    400 Status Code: If the :id parameter is not a valid integer, the API returns a 400 status code.'
+    500 Status Code: Any other error
+```
+Successful Requests
+```
+    200 Status Code: Successful requests return a 200 status code along with the JSON representation of the requested data.
+```
+
+Swagger Documentation
+```bash
    /api-docs/
-   ```
+```
 
 Postgre Credentials\
 Credentials are set in constants.ts
