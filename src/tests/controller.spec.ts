@@ -1,5 +1,5 @@
 import sample from './sample.json'
-import properties from '../properties.json'
+import properties from '../data/properties.json'
 import * as constants from '../constants'
 const mockOneFunction = jest.fn()
 const mockAnyFunction = jest.fn()
