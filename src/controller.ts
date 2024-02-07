@@ -39,7 +39,7 @@ const getPropertyByIdController = async (req, res, next) => {
         const result = properties.find(({ property_id }: any) => property_id === Number(req.params.id));
         if (!result) {
             throw {
-                statusCode: 400,
+                statusCode: 404,
                 message: `No such property with id ${req.params.id}`
             }
         }

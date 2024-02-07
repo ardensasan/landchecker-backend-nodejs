@@ -36,3 +36,24 @@ Available Endpoints
    /lgas/:id (GET)
    /properties/list (GET)
    /properties/:id (GET)
+   ```
+
+For more information about endpoint
+   ```bash
+   /api-docs/ for swagger documentation
+   ```
+
+Postgre Credentials\
+Credentials are set in constants.ts
+```bash
+const DATABASE_CREDENTIALS = {
+    host: 'localhost',
+    port: 5432,
+    database: 'postgres',
+    user: 'postgres',
+    password: 'admin',
+}
+```
+
+
+
