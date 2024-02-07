@@ -32,7 +32,7 @@ const postgreClient = () => {
                 offset = (page - 1) * limit
             }
             const query = {
-                text: `SELECT * FROM ${TABLE_NAME} OFFSET $1 LIMIT $2`,
+                text: `SELECT * FROM ${TABLE_NAME} ORDER BY gid ASC  OFFSET $1 LIMIT $2 `,
                 values: [offset, limit],
             }
             const result = await db.any(query)
