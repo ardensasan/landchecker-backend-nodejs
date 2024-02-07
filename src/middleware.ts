@@ -11,6 +11,7 @@ const requestParamsValidator = (schema) => {
             await schema.validate(req.params);
             next();
         } catch (error) {
+            error.statusCode = 404
             next(error)
         }
     }
@@ -22,6 +23,7 @@ const requestQueryValidator = (schema) => {
             await schema.validate(req.query);
             next();
         } catch (error) {
+            error.statusCode = 404
             next(error)
         }
     }
