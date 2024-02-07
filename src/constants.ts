@@ -1,5 +1,6 @@
-import { object, number } from 'yup';
+import { object, number } from 'yup'
 const TABLE_NAME = 'public.vic_lga'
+const CSV_FILE_PATH = './src/data/ABS_ERP_COMP_LGA2022_1.0.0.csv'
 const DATABASE_CREDENTIALS = {
     host: 'localhost',
     port: 5432,
@@ -19,5 +20,6 @@ export {
     TABLE_NAME,
     DATABASE_CREDENTIALS,
     GET_BY_ID_SCHEMA,
-    GET_LIST_SCHEMA
+    GET_LIST_SCHEMA,
+    CSV_FILE_PATH
 }

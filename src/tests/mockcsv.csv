@@ -1,0 +1,2 @@
+﻿DATAFLOW,POP_COMP: Population Component,REGION_TYPE: Region Type,REGION: Region,FREQ: Frequency,TIME_PERIOD: Time Period,OBS_VALUE,UNIT_MEASURE: Unit of Measure,OBS_STATUS: Observation Status,OBS_COMMENT: Observation Comment
+ABS:ERP_COMP_LGA2022(1.0.0),Natural Increase,LGA2022: Local Government Areas (2022),20910: Bayside (Vic.),A: Annual,2022,-62,PSNS: Persons,," "

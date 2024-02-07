@@ -1,7 +1,9 @@
 import sample from './sample.json'
 import properties from '../properties.json'
+import * as constants from '../constants'
 const mockOneFunction = jest.fn()
 const mockAnyFunction = jest.fn()
+let mockValue = './src/tests/mockcsv.csv' 
 import { getLGAByIdController, getLGAListController, getPropertiesListController, getPropertyByIdController, wildcardPathController } from "../controller";
 jest.mock("pg-promise", () => ({
     __esModule: true,
@@ -24,6 +26,21 @@ describe("controller tests", () => {
         json: jest.fn()
     }
     const next = jest.fn()
+
+    it("should return lga data when id exists", async () => {
+        const req = {
+            params: {
+                id: 1
+            }
+        }
+        mockOneFunction.mockReset();
+        mockOneFunction.mockReturnValue(sample)
+        jest.replaceProperty<any, any>(constants, 'CSV_FILE_PATH', './src/tests/mockcsv.csv' )
+        await getLGAByIdController(req, res, next)
+        expect(next).toHaveBeenCalled()
+        jest.replaceProperty<any, any>(constants, 'CSV_FILE_PATH', './src/data/ABS_ERP_COMP_LGA2022_1.0.0.csv' )
+    })
+
     it("should return lga data when id exists", async () => {
         const req = {
             params: {

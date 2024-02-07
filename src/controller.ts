@@ -19,7 +19,15 @@ const getLGAListController = async (req, res, next) => {
     try {
         const page = (req.query?.page || 0)
         const limit = 10;
-        const result = await postgreClient().getLGAList(page, limit)
+        const lgas = await postgreClient().getLGAList(page, limit)
+        const promiseList = lgas.map(async (lga) => {
+            const population = await getLGAPopulation(lga.abslgacode, lga.lga_name)
+            return {
+                ...lga,
+                population
+            }
+        })
+        const result = await Promise.all(promiseList)
         return res.json({ result })
     } catch (error) {
         next(error)
