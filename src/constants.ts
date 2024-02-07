@@ -12,7 +12,7 @@ const GET_BY_ID_SCHEMA = object({
     id: number().integer("Id is not a valid integer").typeError("Id is not a valid integer").min(0, "Id is not a valid integer").required(),
 });
 const GET_LIST_SCHEMA = object({
-    page: number().integer("page is not a valid integer").typeError("page is not a valid integer").min(0, "page is not a valid integer"),
+    page: number().integer("page is not a valid integer").typeError("page is not a valid integer").min(1, "page number must be greater than 0"),
 });
 export {
     TABLE_NAME,
