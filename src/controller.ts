@@ -1,10 +1,15 @@
 
-import postgreClient from "./postgre"
+import { getLGAPopulation } from "./services/csv"
+import postgreClient from "./services/postgre"
 import properties from './properties.json'
 const getLGAByIdController = async (req, res, next) => {
     try {
         const result = await postgreClient().getDataByid(req.params.id)
-        return res.json({ result })
+        const population = await getLGAPopulation(result.abslgacode, result.lga_name)
+        return res.json({ result: {
+            ...result,
+            population
+        } })
     } catch (error) {
         next(error)
     }

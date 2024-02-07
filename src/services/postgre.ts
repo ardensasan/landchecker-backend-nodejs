@@ -1,5 +1,5 @@
 import pgPromise from "pg-promise"
-import { DATABASE_CREDENTIALS, TABLE_NAME } from "./constants";
+import { DATABASE_CREDENTIALS, TABLE_NAME } from "../constants";
 let db = null;
 const postgreClient = () => {
     if (!db) {
@@ -38,8 +38,6 @@ const postgreClient = () => {
             const result = await db.any(query)
             return result
         } catch (error) {
-            console.log("Errrrrrrrrrrrrorr")
-            console.log(error)
             throw error
         }
     }
