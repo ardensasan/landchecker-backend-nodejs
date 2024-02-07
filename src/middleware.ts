@@ -1,12 +1,14 @@
+import { NextFunction } from "express";
+
 const errorCatcher = (error, req, res, next) => {
-    const { statusCode = 500, message = "" } = error;
+    const { statusCode = 500, message = "Error Encountered" } = error;
     return res.status(statusCode).json({
         error: message
     }).end()
 }
 
 const requestParamsValidator = (schema) => {
-    return async (req, res, next) => {
+    return async (req, res, next: NextFunction) => {
         try {
             await schema.validate(req.params);
             next();
@@ -18,7 +20,7 @@ const requestParamsValidator = (schema) => {
 }
 
 const requestQueryValidator = (schema) => {
-    return async (req, res, next) => {
+    return async (req, res, next: NextFunction) => {
         try {
             await schema.validate(req.query);
             next();

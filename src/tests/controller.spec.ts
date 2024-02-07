@@ -3,7 +3,6 @@ import properties from '../properties.json'
 import * as constants from '../constants'
 const mockOneFunction = jest.fn()
 const mockAnyFunction = jest.fn()
-let mockValue = './src/tests/mockcsv.csv' 
 import { getLGAByIdController, getLGAListController, getPropertiesListController, getPropertyByIdController, wildcardPathController } from "../controller";
 jest.mock("pg-promise", () => ({
     __esModule: true,
