@@ -3,9 +3,14 @@
 This repository contains an Express API designed to handle requests related to LGAs (Local Government Areas) and properties. The API provides endpoints for retrieving information about LGAs and properties.
 
 Sample hostname deployed on AWS without the /api-docs endpoint\
-    ```
-    https://ts28dcnof1.execute-api.us-east-1.amazonaws.com/dev/
-    ```
+   ```bash
+   https://ts28dcnof1.execute-api.us-east-1.amazonaws.com/dev/
+   ```
+   
+just add the endpoints after the host name
+   ```
+   https://ts28dcnof1.execute-api.us-east-1.amazonaws.com/dev/lgas/list
+   ```
 
 ## Getting Started
 
