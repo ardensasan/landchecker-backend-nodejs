@@ -147,7 +147,7 @@ describe("controller tests", () => {
         }
         await getPropertyByIdController(req, res, next);
         expect(next).toHaveBeenCalledWith({
-            statusCode: 400,
+            statusCode: 404,
             message: `No such property with id ${12314151}`
         })
     })
