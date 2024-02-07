@@ -16,7 +16,19 @@ const requestParamsValidator = (schema) => {
     }
 }
 
+const requestQueryValidator = (schema) => {
+    return async (req, res, next) => {
+        try {
+            await schema.validate(req.query);
+            next();
+        } catch (error) {
+            next(error)
+        }
+    }
+}
+
 export {
     errorCatcher,
-    requestParamsValidator
+    requestParamsValidator,
+    requestQueryValidator
 }

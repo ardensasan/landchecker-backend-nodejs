@@ -7,16 +7,17 @@ const postgreClient = () => {
         db = pgp(DATABASE_CREDENTIALS);
     }
 
-   const getDataByid = async (id: any) => {
-    const query = {
-        text: `SELECT * FROM ${TABLE_NAME} WHERE gid = $1`,
-        values: [id],
+    const getDataByid = async (id: any) => {
+        const query = {
+            text: `SELECT * FROM ${TABLE_NAME} WHERE gid = $1`,
+            values: [id],
         }
         try {
             const result = await db.one(query)
             return result
         } catch (error) {
-            if(error.message == "No data returned from the query.") {
+            if (error.message == "No data returned from the query.") {
+                error.message = `No such lga with id ${id}`
                 error.statusCode = 404
                 throw error
             }
@@ -24,7 +25,27 @@ const postgreClient = () => {
         }
     }
 
+    const getLGAList = async (page: any, limit: any) => {
+        let offset = 0
+        try {
+            if (page !== '1' && page) {
+                offset = (page - 1) * limit
+            }
+            const query = {
+                text: `SELECT * FROM ${TABLE_NAME} OFFSET $1 LIMIT $2`,
+                values: [offset, limit],
+            }
+            const result = await db.any(query)
+            return result
+        } catch (error) {
+            console.log("Errrrrrrrrrrrrorr")
+            console.log(error)
+            throw error
+        }
+    }
+
     return {
+        getLGAList,
         getDataByid,
     }
 }
