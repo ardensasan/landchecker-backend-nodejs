@@ -38,9 +38,9 @@ Available Endpoints
    /properties/:id (GET)
    ```
 
-For more information about endpoint
+For swagger documentation
    ```bash
-   /api-docs/ for swagger documentation
+   /api-docs/
    ```
 
 Postgre Credentials\
