@@ -2,7 +2,6 @@ import express from "express"
 import { errorCatcher, requestParamsValidator } from "./middlewares";
 import { getByIdController, wildcardPathController } from "./controller";
 import { GET_BY_ID_SCHEMA } from "./constants";
-GET_BY_ID_SCHEMA
 const app = express();
 const port = 3000;
 
