@@ -2,6 +2,11 @@
 
 This repository contains an Express API designed to handle requests related to LGAs (Local Government Areas) and properties. The API provides endpoints for retrieving information about LGAs and properties.
 
+Sample hostname deployed on AWS without the /api-docs endpoint\
+    ```
+    https://ts28dcnof1.execute-api.us-east-1.amazonaws.com/dev/
+    ```
+
 ## Getting Started
 
 To get started with this Express app, follow these steps:
@@ -39,7 +44,6 @@ Available Endpoints
    /properties/list (GET) Retrieves a list of properties.
    /properties/:id (GET) Retrieves information about a specific property identified by its id.
    ```
-
 Error Handling
 ```
     404 Status Code: The API returns a 404 status code if the requested id cannot be found in the database.
